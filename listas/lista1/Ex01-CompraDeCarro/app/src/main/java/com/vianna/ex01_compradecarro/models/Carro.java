@@ -25,6 +25,11 @@ public class Carro {
             acessorios.add(a);
     }
 
+    public void adicionarAcessorio(List<IAcessorio> ac) {
+        for (IAcessorio a : ac)
+            acessorios.add(a);
+    }
+
     private double getPrecoModelo() {
         if (modelo == "Celta")
             return 15000;
