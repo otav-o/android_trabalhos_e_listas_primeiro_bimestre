@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Ex02-Aposentadoria</string>
+    <string name="ano_nascimento">Ano de nascimento</string>
+    <string name="anos_trabalhados">Anos trabalhados</string>
 </resources>
