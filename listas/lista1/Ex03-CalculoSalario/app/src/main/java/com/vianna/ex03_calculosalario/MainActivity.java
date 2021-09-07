@@ -5,8 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
+import com.vianna.ex03_calculosalario.models.Empregado;
+import com.vianna.ex03_calculosalario.models.Emprego;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,7 +32,19 @@ public class MainActivity extends AppCompatActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                double salarioHora = Double.parseDouble(
+                        tiSalarioPorHora.getEditText().getText().toString());
+                int numeroDependentes = Integer.parseInt(
+                        tiNumeroDependentes.getEditText().getText().toString());
+                double horasTrabalhadas = Double.parseDouble(
+                        tiHorasTrabalhadas.getEditText().getText().toString());
 
+                Emprego e = new Emprego(salarioHora, horasTrabalhadas);
+                Empregado empregado = new Empregado(e, numeroDependentes);
+
+                Toast.makeText(getApplicationContext(),
+                        String.format("Seu salário líquido, com as deduções do governo, é de: "
+                                + empregado.getSalarioLiquido()), Toast.LENGTH_LONG).show();
             }
         };
     }
