@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Ex03-CalculoSalario</string>
+    <string name="titulo">Cálculo de salário</string>
+    <string name="botao_calcular">Calcular</string>
+    <string name="first_input">Salário por hora</string>
+    <string name="second_input">Horas trabalhadas</string>
+    <string name="third_input">Número de dependentes</string>
+</resources>
