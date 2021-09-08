@@ -11,6 +11,14 @@ public class RegulamentoPesca {
         return pesoExcedido * multaPorQuiloExcedente;
     }
 
-    private double multaPorQuiloExcedente = 4;
-    private double pesoMaximoPorPescado = 50;
+    public static double getMultaPorQuiloExcedente() {
+        return multaPorQuiloExcedente;
+    }
+
+    public static double getPesoMaximoPorPescado() {
+        return pesoMaximoPorPescado;
+    }
+
+    private static double multaPorQuiloExcedente = 4;
+    private static double pesoMaximoPorPescado = 50;
 }
