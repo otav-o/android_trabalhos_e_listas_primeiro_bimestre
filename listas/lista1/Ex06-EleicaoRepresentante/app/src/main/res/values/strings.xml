@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Ex06-EleicaoRepresentante</string>
+    <string name="main_title">Eleição de representante de turma</string>
+    <string name="btn_vote_label">Votar</string>
+    <string name="btn_cadastrar_label">Cadastrar</string>
 </resources>
