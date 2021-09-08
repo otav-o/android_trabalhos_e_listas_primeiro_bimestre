@@ -8,4 +8,8 @@
     <string name="porcentagem_mulheres">Porcentagem de mulheres</string>
     <string name="porcentagem_especifica">porcentagem de indivíduos do sexo feminino cuja idade esteja entre 18 e 35 anos, inclusive, e que tenham olhos verdes e cabelos louros</string>
     <string name="adicionar_pessoa_label">Clique no botão abaixo para inserir um registro</string>
+    <string name="altura_cadastro">Altura</string>
+    <string name="idade_cadastro">Idade</string>
+    <string name="cor_cabelo">Cor dos cabelos</string>
+    <string name="cor_olhos_cadastro">Cor dos olhos</string>
 </resources>
