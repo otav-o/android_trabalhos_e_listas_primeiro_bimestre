@@ -1,13 +1,50 @@
 package com.vianna.ex01_salarioprofessor.models;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Professor {
+public class Professor implements Serializable {
 
     public Professor(String nome, int especializacao) {
         this.nome = nome;
         setEspecializacao(especializacao);
+    }
+
+    public List<Disciplina> getDisciplinas() {
+        return disciplinas;
+    }
+
+    public boolean isPossuiMestrado() {
+        return possuiMestrado;
+    }
+
+    public void setPossuiMestrado(boolean possuiMestrado) {
+        this.possuiMestrado = possuiMestrado;
+    }
+
+    public boolean isPossuiEspecializacao() {
+        return possuiEspecializacao;
+    }
+
+    public void setPossuiEspecializacao(boolean possuiEspecializacao) {
+        this.possuiEspecializacao = possuiEspecializacao;
+    }
+
+    public boolean isPossuiDoutorado() {
+        return possuiDoutorado;
+    }
+
+    public void setPossuiDoutorado(boolean possuiDoutorado) {
+        this.possuiDoutorado = possuiDoutorado;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public double calcularSalario(double valorPorHora) {
