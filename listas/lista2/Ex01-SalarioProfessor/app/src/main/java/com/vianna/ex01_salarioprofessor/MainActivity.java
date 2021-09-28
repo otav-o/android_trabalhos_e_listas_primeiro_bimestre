@@ -16,11 +16,10 @@ import com.vianna.ex01_salarioprofessor.models.Disciplina;
 import com.vianna.ex01_salarioprofessor.models.Professor;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnCadastroProfessor, btnCadastroDisciplina;
+    Button btnCadastroProfessor, btnLogin;
 
     private ArrayList<Professor> professores;
     private Professor professorLogado;
@@ -32,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
         binding();
         registraEventos();
+        dadosProntos();
     }
 
     private void dadosProntos() {
@@ -48,17 +48,17 @@ public class MainActivity extends AppCompatActivity {
 
     private void registraEventos() {
         btnCadastroProfessor.setOnClickListener(callViewCadastroProfessor());
-        btnCadastroDisciplina.setOnClickListener(callViewCadastroDisciplina());
+        btnLogin.setOnClickListener(callViewLoginProfessor());
     }
 
-    private View.OnClickListener callViewCadastroDisciplina() {
+    private View.OnClickListener callViewLoginProfessor() {
         return new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent itn = new Intent(getApplicationContext(), CadDisciplinaActivity.class);
-                itn.putExtra("disciplinas", professores);
+                Intent itn = new Intent(getApplicationContext(), LoginActivity.class);
+                itn.putExtra("professores", professores);
 
-                viewCadastroDisciplina.launch(itn);
+                startActivity(itn);
             }
         };
     }
@@ -90,26 +90,26 @@ public class MainActivity extends AppCompatActivity {
             }
     );
 
-    ActivityResultLauncher<Intent> viewCadastroDisciplina = registerForActivityResult(
-            new ActivityResultContracts.StartActivityForResult(),
-            new ActivityResultCallback<ActivityResult>() {
-                @Override
-                public void onActivityResult(ActivityResult result) {
-                    if (result.getResultCode() == 10) {
-                        Disciplina d = (Disciplina) result.getData().getExtras().getSerializable("disciplina");
-                        // TODO: consertar isso daqui. Recuperar o professor logado.
-                        professorLogado.addDisciplina(d);
-
-                        Toast.makeText(getApplicationContext(), "Disciplina " + d.getNome() +
-                                " adicionada com sucesso ao professor " + professorLogado.getNome(),
-                                Toast.LENGTH_LONG).show();
-                    }
-                }
-            }
-    );
+//    ActivityResultLauncher<Intent> viewLogin = registerForActivityResult(
+//            new ActivityResultContracts.StartActivityForResult(),
+//            new ActivityResultCallback<ActivityResult>() {
+//                @Override
+//                public void onActivityResult(ActivityResult result) {
+//                    if (result.getResultCode() == 10) {
+//                        Disciplina d = (Disciplina) result.getData().getExtras().getSerializable("disciplina");
+//                        // TODO: consertar isso daqui. Recuperar o professor logado.
+//                        professorLogado.addDisciplina(d);
+//
+//                        Toast.makeText(getApplicationContext(), "Disciplina " + d.getNome() +
+//                                        " adicionada com sucesso ao professor " + professorLogado.getNome(),
+//                                Toast.LENGTH_LONG).show();
+//                    }
+//                }
+//            }
+//    );
 
     private void binding() {
-        btnCadastroDisciplina = findViewById(R.id.btnCadastroDisciplina);
+        btnLogin = findViewById(R.id.btnLogin);
         btnCadastroProfessor = findViewById(R.id.btnCadastroProfessor);
     }
 }
