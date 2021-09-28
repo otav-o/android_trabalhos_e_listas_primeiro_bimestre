@@ -58,7 +58,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private Professor encontrarProfessor(String nome) {
         for (Professor p: professores) {
-            if(nome == p.getNome())
+            if(nome.equals(p.getNome()))
                 return p;
         }
         return null;

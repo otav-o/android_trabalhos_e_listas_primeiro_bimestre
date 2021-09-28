@@ -25,14 +25,14 @@
         android:layout_marginStart="1dp"
         android:layout_marginTop="150dp"
         android:layout_marginEnd="1dp"
+        android:hint="Nome da disciplina"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Nome" />
+            android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -62,4 +62,34 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tiCreditosDisciplina" />
+
+    <Button
+        android:id="@+id/btnSalvarDisciplina"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Salvar disciplina"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cbEhEad" />
+
+    <TextView
+        android:id="@+id/tvNomeProfessorLogado"
+        android:layout_width="143dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="24dp"
+        android:text="Nome do professor:"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <Button
+        android:id="@+id/btnMostrarDisciplinasProfessor"
+        android:layout_width="0dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="3dp"
+        android:text="Mostrar disciplinas deste professor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSalvarDisciplina" />
 </androidx.constraintlayout.widget.ConstraintLayout>
