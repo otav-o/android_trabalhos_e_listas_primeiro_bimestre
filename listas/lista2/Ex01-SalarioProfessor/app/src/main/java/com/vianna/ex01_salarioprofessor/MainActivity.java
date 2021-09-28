@@ -36,9 +36,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void dadosProntos() {
         professores = new ArrayList<>();
-        professores.add(new Professor("Daves",10));
-        professores.add(new Professor("Miriã", 9));
-        professores.add(new Professor("Zezin",2));
+        professores.add(new Professor("Daves",10, 30));
+        professores.add(new Professor("Miriã", 9, 30));
+        professores.add(new Professor("Zezin",2, 30));
 
         professores.get(0).addDisciplina(new Disciplina("FPOO", 4, false));
         professores.get(0).addDisciplina(new Disciplina("Sistemas Operacionais", 4, true));

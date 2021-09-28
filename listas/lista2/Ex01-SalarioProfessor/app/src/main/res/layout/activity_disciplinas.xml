@@ -22,10 +22,21 @@
         android:id="@+id/tvDisciplinasListagem"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginBottom="200dp"
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvNomeProfessorLogadoDisciplinas" />
+
+    <TextView
+        android:id="@+id/tvSalarioProfessor"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDisciplinasListagem" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

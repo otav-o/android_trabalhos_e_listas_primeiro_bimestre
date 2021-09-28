@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public class DisciplinasActivity extends AppCompatActivity {
 
-    TextView lblDisciplinasListagem, lblProfessorLogado;
+    TextView lblDisciplinasListagem, lblProfessorLogado, lblSalarioProfessor;
     ArrayList<Disciplina> disciplinas;
     Professor professorLogado;
 
@@ -33,14 +33,16 @@ public class DisciplinasActivity extends AppCompatActivity {
         lblProfessorLogado.setText("Disciplinas do professor: " + professorLogado.getNome());
         String base = "";
         for (Disciplina d: disciplinas) {
-            base += String.format("%s, Créditos: %d, %s EAD \n", d.getNome(), d.getCreditos(),
+            base += String.format("-> %s, Créditos: %d, %s EAD \n", d.getNome(), d.getCreditos(),
                     d.getEhEad() ? "É" : "Não é");
         }
         lblDisciplinasListagem.setText(base);
+        lblSalarioProfessor.setText("Salário total: " + professorLogado.calcularSalario());
     }
 
     private void binding() {
         lblDisciplinasListagem = findViewById(R.id.tvDisciplinasListagem);
         lblProfessorLogado = findViewById(R.id.tvNomeProfessorLogadoDisciplinas);
+        lblSalarioProfessor = findViewById(R.id.tvSalarioProfessor);
     }
 }

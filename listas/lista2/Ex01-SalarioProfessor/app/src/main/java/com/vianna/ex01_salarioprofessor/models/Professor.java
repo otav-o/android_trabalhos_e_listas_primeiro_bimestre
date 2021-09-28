@@ -6,9 +6,24 @@ import java.util.List;
 
 public class Professor implements Serializable {
 
-    public Professor(String nome, int especializacao) {
+    public Professor(String nome, int especializacao, double salarioPorHora) {
         this.nome = nome;
+        this.salarioPorHora = salarioPorHora;
         setEspecializacao(especializacao);
+    }
+
+    private double salarioPorHora;
+
+    public double getSalarioPorHora() {
+        return salarioPorHora;
+    }
+
+    public void setSalarioPorHora(double salarioPorHora) {
+        this.salarioPorHora = salarioPorHora;
+    }
+
+    public void setDisciplinas(List<Disciplina> disciplinas) {
+        this.disciplinas = disciplinas;
     }
 
     public List<Disciplina> getDisciplinas() {
@@ -47,10 +62,10 @@ public class Professor implements Serializable {
         this.nome = nome;
     }
 
-    public double calcularSalario(double valorPorHora) {
-        if (possuiDoutorado) valorPorHora *= 1.75;
-        else if (possuiMestrado) valorPorHora *= 1.45;
-        else if (possuiEspecializacao) valorPorHora *= 1.15;
+    public double calcularSalario() {
+        if (possuiDoutorado) salarioPorHora *= 1.75;
+        else if (possuiMestrado) salarioPorHora *= 1.45;
+        else if (possuiEspecializacao) salarioPorHora *= 1.15;
 
         double creditos = 0;
 
@@ -60,7 +75,7 @@ public class Professor implements Serializable {
             else
                 creditos += d.getCreditos();
         }
-        return creditos * 4 * valorPorHora;
+        return creditos * 4 * salarioPorHora;
     }
 
     public void addDisciplina(Disciplina d) {
