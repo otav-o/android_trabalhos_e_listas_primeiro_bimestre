@@ -75,11 +75,11 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_width="175dp"
+        android:layout_height="174dp"
+        android:layout_marginTop="32dp"
+        android:foreground="@drawable/writer"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
         tools:srcCompat="@tools:sample/avatars" />

@@ -53,7 +53,8 @@ public class MainActivity extends AppCompatActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TODO: implementar
+                Intent itn = new Intent(getApplicationContext(), AvaliarArtigoActivity.class);
+                startActivity(itn);
             }
         };
     }
