@@ -5,4 +5,9 @@ import java.io.Serializable;
 public abstract class Pessoa implements Serializable {
     public String getNome() { return nome; }
     protected String nome;
+
+    @Override
+    public String toString() {
+        return nome;
+    }
 }
