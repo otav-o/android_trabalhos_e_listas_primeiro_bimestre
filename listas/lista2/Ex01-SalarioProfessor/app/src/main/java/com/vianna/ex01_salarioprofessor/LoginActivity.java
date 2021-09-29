@@ -32,10 +32,6 @@ public class LoginActivity extends AppCompatActivity {
         binding();
         registraEventos();
         professores = (ArrayList<Professor>) getIntent().getExtras().getSerializable("professores");
-
-        Toast.makeText(getApplicationContext(), professores.get(0).getNome(),
-                Toast.LENGTH_LONG).show();
-
     }
 
     private void registraEventos() {
@@ -49,7 +45,6 @@ public class LoginActivity extends AppCompatActivity {
                     Intent itn = new Intent(getApplicationContext(), CadDisciplinaActivity.class);
                     Professor professorLogado = encontrarProfessor(tiNomeProfessor.getEditText().getText().toString());
                     itn.putExtra("professorLogado", professorLogado);
-//                    viewCadastroDisciplina.launch(itn);
 
                     startActivity(itn);
                 }
@@ -63,24 +58,6 @@ public class LoginActivity extends AppCompatActivity {
         }
         return null;
     }
-
-//    ActivityResultLauncher<Intent> viewCadastroDisciplina = registerForActivityResult(
-//            new ActivityResultContracts.StartActivityForResult(),
-//            new ActivityResultCallback<ActivityResult>() {
-//                @Override
-//                public void onActivityResult(ActivityResult result) {
-//                    if (result.getResultCode() == 10) {
-//                        Disciplina d = (Disciplina) result.getData().getExtras().getSerializable("disciplina");
-//                        // TODO: consertar isso daqui. Recuperar o professor logado.
-//                        professorLogado.addDisciplina(d);
-//
-//                        Toast.makeText(getApplicationContext(), "Disciplina " + d.getNome() +
-//                                        " adicionada com sucesso ao professor " + professorLogado.getNome(),
-//                                Toast.LENGTH_LONG).show();
-//                    }
-//                }
-//            }
-//    );
 
     private void binding() {
         tiNomeProfessor = findViewById(R.id.tiNomeProfessor);

@@ -6,10 +6,13 @@ import java.util.List;
 
 public class Professor implements Serializable {
 
-    public Professor(String nome, int especializacao, double salarioPorHora) {
+    public Professor(String nome, double salarioPorHora,
+                     boolean possuiDoutorado, boolean possuiEspecializacao, boolean possuiMestrado) {
         this.nome = nome;
         this.salarioPorHora = salarioPorHora;
-        setEspecializacao(especializacao);
+        this.possuiDoutorado = possuiDoutorado;
+        this.possuiEspecializacao = possuiEspecializacao;
+        this.possuiMestrado = possuiMestrado;
     }
 
     private double salarioPorHora;
@@ -82,19 +85,12 @@ public class Professor implements Serializable {
         disciplinas.add(d);
     }
 
-    public void setEspecializacao (int n) {
-        switch (n) {
-            case 2: possuiEspecializacao = true; break;
-            case 3: possuiMestrado = true; break;
-            case 4: possuiDoutorado = true; break;
-        }
-    }
 
     private List<Disciplina> disciplinas = new ArrayList<>();
 
-    private boolean possuiMestrado = false;
-    private boolean possuiEspecializacao = false;
-    private boolean possuiDoutorado = false;
+    private boolean possuiMestrado;
+    private boolean possuiEspecializacao;
+    private boolean possuiDoutorado;
 
     private String nome;
 }

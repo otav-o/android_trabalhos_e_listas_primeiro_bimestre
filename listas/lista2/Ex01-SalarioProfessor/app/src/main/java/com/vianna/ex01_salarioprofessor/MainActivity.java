@@ -36,9 +36,12 @@ public class MainActivity extends AppCompatActivity {
 
     private void dadosProntos() {
         professores = new ArrayList<>();
-        professores.add(new Professor("Daves",10, 30));
-        professores.add(new Professor("Miriã", 9, 30));
-        professores.add(new Professor("Zezin",2, 30));
+        professores.add(new Professor("Daves", 30,
+                true, true, true));
+        professores.add(new Professor("Miriã",  30,
+                false, false, false));
+        professores.add(new Professor("Zezin", 30,
+                false, true, true));
 
         professores.get(0).addDisciplina(new Disciplina("FPOO", 4, false));
         professores.get(0).addDisciplina(new Disciplina("Sistemas Operacionais", 4, true));
@@ -80,7 +83,8 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onActivityResult(ActivityResult result) {
                     if (result.getResultCode() == 10) {
-                        Professor p = (Professor) result.getData().getExtras().getSerializable("professor");
+                        Professor p = (Professor) result.getData().getExtras()
+                                .getSerializable("professorCriado");
                         professores.add(p);
 
                         Toast.makeText(getApplicationContext(), "Professor " + p.getNome() +
@@ -89,24 +93,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
     );
-
-//    ActivityResultLauncher<Intent> viewLogin = registerForActivityResult(
-//            new ActivityResultContracts.StartActivityForResult(),
-//            new ActivityResultCallback<ActivityResult>() {
-//                @Override
-//                public void onActivityResult(ActivityResult result) {
-//                    if (result.getResultCode() == 10) {
-//                        Disciplina d = (Disciplina) result.getData().getExtras().getSerializable("disciplina");
-//                        // TODO: consertar isso daqui. Recuperar o professor logado.
-//                        professorLogado.addDisciplina(d);
-//
-//                        Toast.makeText(getApplicationContext(), "Disciplina " + d.getNome() +
-//                                        " adicionada com sucesso ao professor " + professorLogado.getNome(),
-//                                Toast.LENGTH_LONG).show();
-//                    }
-//                }
-//            }
-//    );
 
     private void binding() {
         btnLogin = findViewById(R.id.btnLogin);
