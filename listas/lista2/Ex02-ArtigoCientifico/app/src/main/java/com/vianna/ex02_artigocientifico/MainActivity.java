@@ -41,7 +41,10 @@ public class MainActivity extends AppCompatActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TODO: implementar
+                Intent itn = new Intent(getApplicationContext(), CadastrarEscritorActivity.class);
+
+//                viewCadastroEscritor.launch(itn);
+                startActivity(itn);
             }
         };
     }
