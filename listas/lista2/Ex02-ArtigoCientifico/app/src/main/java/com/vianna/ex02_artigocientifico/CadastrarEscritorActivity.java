@@ -2,6 +2,7 @@ package com.vianna.ex02_artigocientifico;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -47,9 +48,11 @@ public class CadastrarEscritorActivity extends AppCompatActivity {
                 else
                     p = new Aluno(nome);
 
-                // TODO fazer um ActivityResultLauncher na tela anterior e passar isso para lá
-                Toast.makeText(getApplicationContext(), "Pessoa " + p.getNome() +
-                        " cadastrada com sucesso!", Toast.LENGTH_LONG).show();
+                Intent i = new Intent();
+                i.putExtra("escritor", p);
+                setResult(10, i);
+
+                finish();
             }
         };
     }

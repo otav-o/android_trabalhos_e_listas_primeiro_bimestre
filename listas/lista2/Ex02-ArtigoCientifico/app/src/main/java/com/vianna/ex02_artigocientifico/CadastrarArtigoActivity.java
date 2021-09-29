@@ -2,11 +2,13 @@ package com.vianna.ex02_artigocientifico;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
 import com.google.android.material.textfield.TextInputLayout;
+import com.vianna.ex02_artigocientifico.models.Artigo;
 
 public class CadastrarArtigoActivity extends AppCompatActivity {
 
@@ -33,7 +35,17 @@ public class CadastrarArtigoActivity extends AppCompatActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TODO: implementar
+                Artigo a = new Artigo(tiNome.getEditText().getText().toString(),
+                        tiDescricao.getEditText().getText().toString());
+
+                // TODO: permitir seleção de autor
+//                a.addAutor();
+
+                Intent i = new Intent();
+                i.putExtra("artigo", a);
+                setResult(10, i);
+
+                finish();
             }
         };
     }

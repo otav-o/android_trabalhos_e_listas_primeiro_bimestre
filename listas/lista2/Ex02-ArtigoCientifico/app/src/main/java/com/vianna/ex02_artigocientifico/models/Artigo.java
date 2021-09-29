@@ -2,10 +2,11 @@ package com.vianna.ex02_artigocientifico.models;
 
 import com.vianna.ex02_artigocientifico.models.Pessoa.Pessoa;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Artigo {
+public class Artigo implements Serializable {
 
     public Artigo(String titulo, String resumo) {
         this.titulo = titulo; this.resumo = resumo;
