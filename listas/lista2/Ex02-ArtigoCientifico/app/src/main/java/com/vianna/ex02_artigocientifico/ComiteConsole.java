@@ -1,7 +1,8 @@
 package com.vianna.ex02_artigocientifico;
 
+import com.vianna.ex02_artigocientifico.models.Artigo;
+
 import java.util.List;
-import java.util.Scanner;
 
 public class ComiteConsole {
     public ComiteConsole(List<Artigo> artigos) {

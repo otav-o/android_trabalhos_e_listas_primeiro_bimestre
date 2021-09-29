@@ -1,6 +1,6 @@
-package com.vianna.ex02_artigocientifico;
+package com.vianna.ex02_artigocientifico.models;
 
-import com.vianna.ex02_artigocientifico.Pessoa.Pessoa;
+import com.vianna.ex02_artigocientifico.models.Pessoa.Pessoa;
 
 import java.util.ArrayList;
 import java.util.List;
