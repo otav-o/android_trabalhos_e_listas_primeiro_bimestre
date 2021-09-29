@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent itn = new Intent(getApplicationContext(), CadastrarArtigoActivity.class);
-//                startActivity(itn);
+                itn.putExtra("escritores", escritores);
                 viewCadastroArtigo.launch(itn);
             }
         };
@@ -129,10 +129,26 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent itn = new Intent(getApplicationContext(), AvaliarArtigoActivity.class);
-                startActivity(itn);
+                itn.putExtra("artigos", artigos);
+                viewAvaliarArtigo.launch(itn);
             }
         };
     }
+
+    ActivityResultLauncher<Intent> viewAvaliarArtigo = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            new ActivityResultCallback<ActivityResult>() {
+                @Override
+                public void onActivityResult(ActivityResult result) {
+                    if (result.getResultCode() == 10) {
+                        Artigo a = (Artigo) result.getData().getExtras().getSerializable("artigo");
+
+                        Toast.makeText(getApplicationContext(),
+                                "Nota " + a.getNota() + " atribuída ao artigo " + a.getTitulo(),
+                                Toast.LENGTH_LONG).show();
+                    }
+                }
+            });
 
     private void binding() {
         btnCadastrarArtigo = findViewById(R.id.btnSubmeterArtigoView);

@@ -16,6 +16,10 @@ public class Artigo implements Serializable {
         for (Pessoa p : pessoas)
             autores.add(p);
     }
+    @Override
+    public String toString() {
+        return titulo;
+    }
 
     public void setNota(double nota) {
         this.nota = nota;
