@@ -29,8 +29,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // TODO: chamar a outra tela
-                //Intent itn = new Intent(getApplicationContext(), ???.class);
-                //startActivity(itn);
+                Intent itn = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(itn);
             }
         };
     }
