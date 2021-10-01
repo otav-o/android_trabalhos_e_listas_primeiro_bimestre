@@ -2,14 +2,20 @@ package com.vianna.ex03_loteriaesportiva.models;
 
 import com.vianna.ex03_loteriaesportiva.models.Loteria.Cartao;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Apostador {
+public class Apostador implements Serializable {
 
     public Apostador(String nome) {
         this.nome = nome;
         cartoes = new ArrayList<>();
+    }
+
+    public Apostador(int id, String nome) {
+        this.nome = nome;
+        this.id = id;
     }
 
     public int getNumeroAcertos(Cartao gabarito, int numeroCartao) throws Exception {
@@ -35,10 +41,19 @@ public class Apostador {
         throw new Exception("Não existe cartão com este número.");
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getNome() {
         return nome;
     }
 
     private String nome;
     private List<Cartao> cartoes;
+    private int id;
 }

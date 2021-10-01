@@ -3,7 +3,6 @@ package com.vianna.ex03_loteriaesportiva.models.Loteria;
 // Representa uma partida de futebol
 
 public class Jogo {
-
     public Jogo(String time1, String time2, int golsTime1, int golsTime2) {
         this.time1 = time1;
         this.time2 = time2;

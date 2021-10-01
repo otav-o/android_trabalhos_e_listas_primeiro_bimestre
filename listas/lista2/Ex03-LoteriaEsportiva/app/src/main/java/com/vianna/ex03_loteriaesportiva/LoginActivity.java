@@ -4,16 +4,21 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.View;
 import android.widget.Button;
 
 import com.google.android.material.textfield.TextInputLayout;
+import com.vianna.ex03_loteriaesportiva.database.dao.ApostadorDao;
+import com.vianna.ex03_loteriaesportiva.models.Apostador;
 
 public class LoginActivity extends AppCompatActivity {
     Button btnLogin, btnCallCriarApostador;
     TextInputLayout tiLogin, tiSenha;
 
     String login, senha;
+
+    ApostadorDao apostadorDao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +27,7 @@ public class LoginActivity extends AppCompatActivity {
 
         binding();
         registraEventos();
+        apostadorDao = new ApostadorDao(getApplicationContext());
     }
 
     private void registraEventos() {
@@ -33,9 +39,16 @@ public class LoginActivity extends AppCompatActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TODO: validar usuário com banco de dados
                 login = tiLogin.getEditText().getText().toString();
                 senha = tiSenha.getEditText().getText().toString();
+
+                Apostador usuarioLogado = apostadorDao.findById(0);
+
+                if (usuarioLogado.getNome() == login) {
+                    Intent itn = new Intent(getApplicationContext(), ApostaActivity.class);
+                    itn.putExtra("usuarioLogado", usuarioLogado);
+                    startActivity(itn);
+                }
             }
         };
     }
@@ -44,10 +57,8 @@ public class LoginActivity extends AppCompatActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TODO: chamar tela de cadastro
-//                Intent itn = new Intent(getApplicationContext(), xxxx.class);
-//                itn.putExtra("usuarioLogado", yyyy);
-//                startActivity(itn);
+                Intent itn = new Intent(getApplicationContext(), CadastraApostadorActivity.class);
+                startActivity(itn);
             }
         };
     }
